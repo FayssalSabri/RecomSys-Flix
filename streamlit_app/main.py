@@ -87,13 +87,13 @@ with st.sidebar:
     
     # Bouton de recommandation
     get_recommendations = st.button(
-        "🎯 Obtenir des recommandations",
+        " Obtenir des recommandations",
         type="primary",
         use_container_width=True
     )
     
     st.markdown("---")
-    st.markdown("### 📊 Statistiques")
+    st.markdown("###  Statistiques")
     
     # Métriques rapides
     col1, col2 = st.columns(2)
@@ -103,7 +103,7 @@ with st.sidebar:
         st.metric("Films", "100+")
     
     st.markdown("---")
-    st.markdown("### 🔧 Développement")
+    st.markdown("###  Développement")
     st.markdown("""
     - **API**: FastAPI
     - **ML**: PyTorch + Scikit-learn
@@ -181,7 +181,7 @@ def get_movie_info(movie_ids):
     return movies_info
 
 # Contenu principal
-tab1, tab2, tab3 = st.tabs(["🎯 Recommandations", "📊 Analytics", "ℹ️ À propos"])
+tab1, tab2, tab3 = st.tabs([" Recommandations", " Analytics", "ℹ️ À propos"])
 
 with tab1:
     st.header("🎬 Recommandations de Films")
@@ -198,7 +198,7 @@ with tab1:
             response_time = time.time() - start_time
             
             if recommendations_data:
-                st.success(f"✅ Recommandations générées en {response_time:.2f}s")
+                st.success(f" Recommandations générées en {response_time:.2f}s")
                 
                 # Affichage des métriques
                 col1, col2, col3, col4 = st.columns(4)
@@ -247,7 +247,7 @@ with tab1:
                     st.bar_chart(scores_data.set_index("Film"))
 
 with tab2:
-    st.header("📊 Analytics et Métriques")
+    st.header(" Analytics et Métriques")
     
     col1, col2 = st.columns(2)
     
@@ -271,7 +271,7 @@ with tab2:
         
         st.bar_chart(genre_data.set_index('Genre'))
     
-    st.subheader("📋 Historique des Recommandations")
+    st.subheader(" Historique des Recommandations")
     
     # Tableau d'historique simulé
     history_data = pd.DataFrame({
@@ -287,18 +287,18 @@ with tab3:
     st.header("ℹ️ À propos de RecomSys-Flix")
     
     st.markdown("""
-    ### 🎯 Qu'est-ce que RecomSys-Flix ?
+    ###  Qu'est-ce que RecomSys-Flix ?
     
     **RecomSys-Flix** est un système de recommandation de films intelligent qui combine plusieurs approches d'IA pour vous proposer les films les plus pertinents.
     
-    ### 🔧 Technologies utilisées
+    ###  Technologies utilisées
     
     - **🤝 Filtrage Collaboratif**: Basé sur la similarité entre utilisateurs
     - **🧠 Réseaux de Neurones**: Embeddings avancés pour capturer les patterns complexes
     - **🌐 API REST**: Architecture microservices avec FastAPI
     - **🎨 Interface**: Streamlit pour une expérience utilisateur intuitive
     
-    ### 📊 Algorithmes implémentés
+    ###  Algorithmes implémentés
     
     1. **Filtrage Collaboratif**
        - Similarité cosinus entre utilisateurs
@@ -318,9 +318,9 @@ with tab3:
     ### 🚀 Performance
     
     - ⏱️ Temps de réponse: < 1 seconde
-    - ✅ Précision: > 85%
+    -  Précision: > 85%
     - 📈 Scalabilité: Jusqu'à 1000+ requêtes/minute
-    - 🎯 Personnalisation: Adapté à chaque utilisateur
+    -  Personnalisation: Adapté à chaque utilisateur
     """)
     
     st.info("💡 **Conseil**: Pour de meilleures résultats, assurez-vous que le serveur API est démarré sur le port 8000.")

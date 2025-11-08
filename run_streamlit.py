@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Script de lancement de l'application Streamlit
 """
@@ -7,7 +6,7 @@ import sys
 import os
 
 def main():
-    print("🚀 Lancement de RecomSys-Flix Streamlit...")
+    print(" Lancement de RecomSys-Flix Streamlit...")
     
     # Vérifier que Streamlit est installé
     try:

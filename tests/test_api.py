@@ -3,7 +3,6 @@ from fastapi.testclient import TestClient
 import sys
 import os
 
-# Ajouter le chemin parent pour les imports
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from app.main import app
@@ -29,7 +28,6 @@ def test_health_endpoint():
 
 def test_recommendation_endpoint():
     """Test du endpoint de recommandation"""
-    # Initialiser le moteur avant le test
     from app.api.endpoints import engine
     from app.api.endpoints import create_sample_data
     
@@ -55,7 +53,6 @@ def test_recommendation_endpoint():
 
 def test_recommendation_different_users():
     """Test avec différents utilisateurs"""
-    # Initialiser le moteur avant le test
     from app.api.endpoints import engine
     from app.api.endpoints import create_sample_data
     
@@ -79,7 +76,6 @@ def test_recommendation_different_users():
 
 def test_recommendation_validation():
     """Test de validation des données"""
-    # Test avec mauvais type de user_id
     invalid_request = {
         "user_id": "not_an_integer",
         "n_recommendations": 5

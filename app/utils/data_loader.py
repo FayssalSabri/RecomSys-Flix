@@ -12,7 +12,7 @@ def load_sample_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
         ratings_df = pd.read_csv(ratings_path)
         movies_df = pd.read_csv(movies_path)
         
-        print(f"📊 Données chargées: {len(ratings_df)} ratings, "
+        print(f" Données chargées: {len(ratings_df)} ratings, "
               f"{ratings_df['user_id'].nunique()} utilisateurs, "
               f"{ratings_df['movie_id'].nunique()} films")
         

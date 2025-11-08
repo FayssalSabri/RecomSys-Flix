@@ -333,8 +333,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - **Issues**: [GitHub Issues](https://github.com/FayssalSabri/RecomSys-Flix/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/FayssalSabri/RecomSys-Flix/discussions)
-- **Email**: your-email@example.com
+- **Email**: fayssal.sabri.pro@gmail.com
 
 ## 📚 Documentation
 

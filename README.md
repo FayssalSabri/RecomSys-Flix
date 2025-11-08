@@ -8,9 +8,9 @@
 
 A hybrid movie recommendation engine combining collaborative filtering with neural embeddings, served through a modern REST API and interactive web interface.
 
-## 🚀 Features
+##  Features
 
-### 🤖 Hybrid Recommendation Engine
+###  Hybrid Recommendation Engine
 - **Collaborative Filtering**: User similarity-based recommendations with SVD
 - **Neural Embeddings**: Deep learning models for complex pattern recognition
 - **Hybrid Approach**: Intelligent combination of both methods for optimal results
@@ -26,20 +26,20 @@ A hybrid movie recommendation engine combining collaborative filtering with neur
 - **Comprehensive Testing**: 19+ unit and integration tests
 - **RESTful API**: Clean, documented endpoints
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 RecomSys-Flix/
-├── 🤖 app/                    # FastAPI Backend
+├──  app/                    # FastAPI Backend
 │   ├── models/               # Pydantic data models
 │   ├── services/             # ML recommendation engines
 │   └── api/                  # REST endpoints
-├── 🎨 streamlit_app/         # Web Interface
+├──  streamlit_app/         # Web Interface
 │   ├── components/           # UI components
 │   └── utils/                # Frontend utilities
-├── 🧪 tests/                 # Comprehensive test suite
-├── 📊 scripts/               # Performance testing
-└── 🐳 Dockerfile             # Containerization
+├──  tests/                 # Comprehensive test suite
+├──  scripts/               # Performance testing
+└──  Dockerfile             # Containerization
 ```
 
 ## 🛠️ Installation
@@ -50,7 +50,7 @@ RecomSys-Flix/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/RecomSys-Flix.git
+git clone https://github.com/FayssalSabri/RecomSys-Flix
 cd RecomSys-Flix
 ```
 
@@ -72,7 +72,7 @@ pip install -r requirements_test.txt
 pip install -r requirements_streamlit.txt
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Option 1: Using Docker (Recommended)
 ```bash
@@ -99,9 +99,9 @@ streamlit run streamlit_app/main.py
 # API Docs: http://localhost:8000/docs
 ```
 
-## 📡 API Endpoints
+##  API Endpoints
 
-### 🔍 Recommendation Endpoints
+###  Recommendation Endpoints
 - `POST /api/v1/recommend` - Get movie recommendations
 - `GET /api/v1/health` - System health check
 - `GET /api/v1/stats` - System statistics
@@ -123,7 +123,7 @@ response = requests.post(
 print(response.json())
 ```
 
-## 🎯 Usage Examples
+##  Usage Examples
 
 ### 1. Web Interface (Streamlit)
 Access `http://localhost:8501` to use the interactive web interface:
@@ -158,7 +158,7 @@ engine.fit(ratings_df)
 recommendations = engine.hybrid_recommend(user_id=1, n_recommendations=10)
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run the comprehensive test suite:
 
@@ -179,7 +179,7 @@ python scripts/test_performance.py
 python -m pytest tests/ --cov=app --cov-report=html
 ```
 
-## 📊 Performance
+##  Performance
 
 | Metric | Value |
 |--------|-------|
@@ -189,7 +189,7 @@ python -m pytest tests/ --cov=app --cov-report=html
 | Scalability | 1000+ requests/minute |
 | Memory Usage | ~500MB |
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 ```bash
@@ -210,7 +210,7 @@ Customize the recommendation algorithms in `app/services/`:
 - Neural network architecture in `neural_embeddings.py`
 - Hybrid combination logic in `hybrid_engine.py`
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 RecomSys-Flix/
@@ -248,7 +248,7 @@ RecomSys-Flix/
 └── docker-compose.yml           # Multi-container setup
 ```
 
-## 🚀 Deployment
+##  Deployment
 
 ### AWS EC2 Deployment
 ```bash
@@ -300,7 +300,7 @@ black app/ streamlit_app/ tests/
 mypy app/ streamlit_app/
 ```
 
-## 📊 Results & Evaluation
+##  Results & Evaluation
 
 The hybrid approach demonstrates significant improvements over individual methods:
 
@@ -310,7 +310,7 @@ The hybrid approach demonstrates significant improvements over individual method
 | Neural Embeddings | 79% | 81% | 0.5s |
 | **Hybrid Approach** | **87%** | **85%** | 0.4s |
 
-## 🛣️ Roadmap
+##  Roadmap
 
 - [ ] Real-time model retraining
 - [ ] A/B testing framework
@@ -320,7 +320,7 @@ The hybrid approach demonstrates significant improvements over individual method
 - [ ] Mobile application
 - [ ] Recommendation explanations
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -332,8 +332,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/your-username/RecomSys-Flix/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/RecomSys-Flix/discussions)
+- **Issues**: [GitHub Issues](https://github.com/FayssalSabri/RecomSys-Flix/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/FayssalSabri/RecomSys-Flix/discussions)
 - **Email**: your-email@example.com
 
 ## 📚 Documentation

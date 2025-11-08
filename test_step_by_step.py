@@ -3,7 +3,7 @@ Script pour tester les composants un par un
 """
 
 def test_components():
-    print("🧪 Test des composants RecomSys-Flix...")
+    print(" Test des composants RecomSys-Flix...")
     
     # 1. Test des modèles
     print("1. Test des modèles Pydantic...")
@@ -49,7 +49,7 @@ def test_components():
         print(f"   ❌ Erreur API: {e}")
         return False
     
-    print("🎉 Tous les composants sont fonctionnels!")
+    print(" Tous les composants sont fonctionnels!")
     return True
 
 if __name__ == "__main__":

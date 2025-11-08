@@ -18,11 +18,11 @@ def create_performance_data():
 
 def test_engine_performance():
     """Test de performance du moteur avec plus de données"""
-    print("🧪 Test de performance avec données étendues...")
+    print(" Test de performance avec données étendues...")
     
     # Créer des données plus importantes
     performance_data = create_performance_data()
-    print(f"📊 Données: {len(performance_data)} ratings, "
+    print(f" Données: {len(performance_data)} ratings, "
           f"{performance_data['user_id'].nunique()} users, "
           f"{performance_data['movie_id'].nunique()} movies")
     
@@ -33,7 +33,7 @@ def test_engine_performance():
     engine.fit(performance_data)
     training_time = time.time() - start_time
     
-    print(f"⏱️ Temps d'entraînement: {training_time:.2f}s")
+    print(f" Temps d'entraînement: {training_time:.2f}s")
     
     # Test de recommandation en batch
     users_to_test = [1, 5, 10, 15, 20]
@@ -54,8 +54,8 @@ def test_engine_performance():
     avg_response_time = total_time / len(users_to_test)
     success_rate = successful_recommendations / len(users_to_test) * 100
     
-    print(f"📈 Temps de réponse moyen: {avg_response_time:.3f}s")
-    print(f"✅ Taux de succès: {success_rate:.1f}%")
+    print(f" Temps de réponse moyen: {avg_response_time:.3f}s")
+    print(f" Taux de succès: {success_rate:.1f}%")
     
     # Vérifications de performance
     assert training_time < 30, f"Entraînement trop long: {training_time:.2f}s"
@@ -66,7 +66,7 @@ def test_engine_performance():
 
 def test_api_performance():
     """Test de performance de l'API"""
-    print("\n🌐 Test de performance API...")
+    print("\ Test de performance API...")
     
     # L'API doit être démarrée pour ce test
     try:
@@ -84,11 +84,11 @@ def test_api_performance():
         
         if response.status_code == 200:
             single_request_time = end_time - start_time
-            print(f"✅ Requête unique: {single_request_time:.3f}s")
-            print(f"📊 Réponse: {response.json()}")
+            print(f" Requête unique: {single_request_time:.3f}s")
+            print(f" Réponse: {response.json()}")
             return single_request_time < 2.0
         else:
-            print(f"❌ API erreur: {response.status_code} - {response.text}")
+            print(f" API erreur: {response.status_code} - {response.text}")
             return False
             
     except requests.exceptions.ConnectionError:
@@ -102,7 +102,7 @@ def test_api_performance():
         return False
 
 if __name__ == "__main__":
-    print("🚀 Lancement des tests de performance RecomSys-Flix...")
+    print(" Lancement des tests de performance RecomSys-Flix...")
     
     # Test du moteur
     engine_success = test_engine_performance()
@@ -111,6 +111,6 @@ if __name__ == "__main__":
     api_success = test_api_performance()
     
     if engine_success and api_success:
-        print("\n🎉 TOUS LES TESTS DE PERFORMANCE ONT RÉUSSI !")
+        print("\n TOUS LES TESTS DE PERFORMANCE ONT RÉUSSI !")
     else:
-        print("\n❌ Certains tests de performance ont échoué")
+        print("\n Certains tests de performance ont échoué")

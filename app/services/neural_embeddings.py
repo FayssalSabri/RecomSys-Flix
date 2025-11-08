@@ -46,7 +46,7 @@ class NeuralRecommendation:
         n_users = len(unique_users)
         n_movies = len(unique_movies)
         
-        print(f"🧠 Entraînement neural: {n_users} users, {n_movies} movies")
+        print(f" Entraînement neural: {n_users} users, {n_movies} movies")
         
         # Initialisation du modèle
         self.model = NeuralEmbeddingModel(n_users, n_movies, embedding_dim=20)
@@ -99,5 +99,5 @@ class NeuralRecommendation:
             for idx in top_indices
         ]
         
-        print(f"🧠 Recommandations neurales pour user {user_id}: {recommended_movies}")
+        print(f" Recommandations neurales pour user {user_id}: {recommended_movies}")
         return recommended_movies

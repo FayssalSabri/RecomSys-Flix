@@ -11,7 +11,7 @@ class HybridEngine:
         
     def fit(self, ratings_df: pd.DataFrame):
         """Entraîne les deux moteurs"""
-        print("🎯 Début de l'entraînement du moteur hybride...")
+        print(" Début de l'entraînement du moteur hybride...")
         
         print("1. Entraînement du filtrage collaboratif...")
         self.cf_engine.fit(ratings_df)
@@ -20,7 +20,7 @@ class HybridEngine:
         self.neural_engine.train(ratings_df, epochs=5)
         
         self.is_fitted = True
-        print("✅ Entraînement terminé!")
+        print(" Entraînement terminé!")
     
     def hybrid_recommend(self, user_id: int, n_recommendations: int = 10) -> List[int]:
         """Combine les recommandations des deux moteurs"""
@@ -29,25 +29,20 @@ class HybridEngine:
         
         print(f"🔍 Génération de recommandations pour user {user_id}...")
         
-        # Recommandations collaboratives
         cf_recs = self.cf_engine.recommend_for_user(user_id, n_recommendations)
         print(f"   Collaborative: {cf_recs}")
         
-        # Recommandations neuronales
         neural_recs = self.neural_engine.recommend(user_id, n_recommendations)
         print(f"   Neural: {neural_recs}")
         
-        # Combinaison simple - priorité aux recommandations collaboratives
         combined_recs = []
         
-        # Ajouter d'abord les recommandations collaboratives
         for movie_id in cf_recs:
             if movie_id not in combined_recs:
                 combined_recs.append(movie_id)
             if len(combined_recs) >= n_recommendations:
                 break
         
-        # Compléter avec les recommandations neuronales si nécessaire
         if len(combined_recs) < n_recommendations:
             for movie_id in neural_recs:
                 if movie_id not in combined_recs:
@@ -55,11 +50,8 @@ class HybridEngine:
                 if len(combined_recs) >= n_recommendations:
                     break
         
-        # Si toujours pas assez, ajouter des films populaires
         if len(combined_recs) < n_recommendations:
-            # Films les plus notés dans les données d'entraînement
-            # Pour l'instant, retourner ce qu'on a
             pass
         
-        print(f"🎯 Recommandations hybrides finales: {combined_recs}")
+        print(f" Recommandations hybrides finales: {combined_recs}")
         return combined_recs[:n_recommendations]

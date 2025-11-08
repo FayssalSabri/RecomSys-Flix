@@ -21,7 +21,7 @@ class CollaborativeFiltering:
             values='rating'
         ).fillna(0)
         
-        print(f"📊 Matrice utilisateur-item: {self.user_item_matrix.shape}")
+        print(f" Matrice utilisateur-item: {self.user_item_matrix.shape}")
         
         # Similarité entre utilisateurs
         self.user_similarity = cosine_similarity(self.user_item_matrix)
@@ -33,7 +33,7 @@ class CollaborativeFiltering:
         if n_components < 2:
             n_components = 2  # Minimum 2 composants
             
-        print(f"🔧 SVD avec {n_components} composants sur {n_movies} films")
+        print(f" SVD avec {n_components} composants sur {n_movies} films")
         
         self.svd_model = TruncatedSVD(n_components=n_components, random_state=42)
         self.svd_matrix = self.svd_model.fit_transform(self.user_item_matrix)
@@ -75,5 +75,5 @@ class CollaborativeFiltering:
                            key=lambda x: x[1], reverse=True)[:n_recommendations]
         
         result = [movie_id for movie_id, score in sorted_recs]
-        print(f"🎯 Recommandations pour user {user_id}: {result}")
+        print(f" Recommandations pour user {user_id}: {result}")
         return result

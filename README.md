@@ -367,7 +367,6 @@ black app/ streamlit_app/ tests/
 ##  Need Help?
 
 - **🐛 Bugs & Issues**: [GitHub Issues](https://github.com/FayssalSabri/RecomSys-Flix/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/FayssalSabri/RecomSys-Flix/discussions)
 - **📧 Email**: fayssal.sabri.pro@gmail.com
 
 ---

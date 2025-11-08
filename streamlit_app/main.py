@@ -6,10 +6,8 @@ from datetime import datetime
 import sys
 import os
 
-# Ajouter le chemin pour les imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Configuration de la page
 st.set_page_config(
     page_title="RecomSys-Flix",
     page_icon="🎬",
@@ -17,7 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS personnalisé
 st.markdown("""
 <style>
     .main-header {
@@ -50,76 +47,67 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Titre principal
 st.markdown('<div class="main-header">🎬 RecomSys-Flix</div>', unsafe_allow_html=True)
-st.markdown("### Votre moteur de recommandation de films intelligent")
+st.markdown("### Your Intelligent Movie Recommendation Engine")
 
-# Sidebar avec configuration
 with st.sidebar:
     st.image("https://img.icons8.com/color/96/000000/cinema-.png", width=80)
     st.title("Configuration")
     
-    # Sélection de l'utilisateur
     user_id = st.number_input(
-        "ID Utilisateur", 
+        "User ID", 
         min_value=1, 
         max_value=100, 
         value=1,
-        help="Entrez l'ID de l'utilisateur pour lequel vous voulez des recommandations"
+        help="Enter the user ID for which you want recommendations"
     )
     
-    # Nombre de recommandations
     n_recommendations = st.slider(
-        "Nombre de recommandations",
+        "Number of recommendations",
         min_value=1,
         max_value=20,
         value=10,
-        help="Nombre de films à recommander"
+        help="Number of movies to recommend"
     )
     
-    # Type de moteur
     engine_type = st.radio(
-        "Type de moteur",
-        ["Hybride", "Collaboratif", "Neuronal"],
+        "Engine type",
+        ["Hybrid", "Collaborative", "Neural"],
         index=0,
-        help="Choisissez le type d'algorithme de recommandation"
+        help="Choose the type of recommendation algorithm"
     )
     
-    # Bouton de recommandation
     get_recommendations = st.button(
-        " Obtenir des recommandations",
+        " Get Recommendations",
         type="primary",
         width='stretch'
     )
     
     st.markdown("---")
-    st.markdown("###  Statistiques")
+    st.markdown("###  Statistics")
     
-    # Métriques rapides
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("Utilisateurs", "50")
+        st.metric("Users", "50")
     with col2:
-        st.metric("Films", "100+")
+        st.metric("Movies", "100+")
     
     st.markdown("---")
-    st.markdown("###  Développement")
+    st.markdown("###  Development")
     st.markdown("""
     - **API**: FastAPI
     - **ML**: PyTorch + Scikit-learn
     - **UI**: Streamlit
-    - **Architecture**: Hybride
+    - **Architecture**: Hybrid
     """)
 
-# Fonction pour appeler l'API
 def get_recommendations_from_api(user_id, n_recommendations, engine_type):
-    """Appelle l'API de recommandation"""
+    """Calls the recommendation API"""
     try:
-        # Mapping des types de moteur
         engine_map = {
-            "Hybride": "hybrid",
-            "Collaboratif": "collaborative", 
-            "Neuronal": "neural"
+            "Hybrid": "hybrid",
+            "Collaborative": "collaborative", 
+            "Neural": "neural"
         }
         
         response = requests.post(
@@ -135,20 +123,18 @@ def get_recommendations_from_api(user_id, n_recommendations, engine_type):
         if response.status_code == 200:
             return response.json()
         else:
-            st.error(f"Erreur API: {response.status_code} - {response.text}")
+            st.error(f"API Error: {response.status_code} - {response.text}")
             return None
             
     except requests.exceptions.ConnectionError:
-        st.error("❌ Impossible de se connecter à l'API. Vérifiez que le serveur est démarré.")
+        st.error(" Unable to connect to the API. Please make sure the server is running.")
         return None
     except Exception as e:
-        st.error(f"❌ Erreur: {str(e)}")
+        st.error(f" Error: {str(e)}")
         return None
 
-# Fonction pour obtenir les informations des films
 def get_movie_info(movie_ids):
-    """Simule la récupération des informations des films"""
-    # En production, vous utiliseriez une vraie base de données
+    """Simulates fetching movie information"""
     movie_database = {
         101: {"title": "Inception", "genre": "Sci-Fi", "year": 2010, "rating": 8.8},
         102: {"title": "The Dark Knight", "genre": "Action", "year": 2008, "rating": 9.0},
@@ -172,25 +158,23 @@ def get_movie_info(movie_ids):
         else:
             movies_info.append({
                 "id": movie_id,
-                "title": f"Film {movie_id}",
-                "genre": "Inconnu",
+                "title": f"Movie {movie_id}",
+                "genre": "Unknown",
                 "year": "N/A", 
                 "rating": "N/A"
             })
     
     return movies_info
 
-# Contenu principal
-tab1, tab2, tab3 = st.tabs([" Recommandations", " Analytics", " À propos"])
+tab1, tab2, tab3 = st.tabs([" Recommendations", " Analytics", " About"])
 
 with tab1:
-    st.header("🎬 Recommandations de Films")
+    st.header("🎬 Movie Recommendations")
     
     if get_recommendations:
-        with st.spinner("🔍 Recherche des meilleures recommandations..."):
+        with st.spinner("🔍 Searching for the best recommendations..."):
             start_time = time.time()
             
-            # Appel à l'API
             recommendations_data = get_recommendations_from_api(
                 user_id, n_recommendations, engine_type
             )
@@ -198,25 +182,22 @@ with tab1:
             response_time = time.time() - start_time
             
             if recommendations_data:
-                st.success(f" Recommandations générées en {response_time:.2f}s")
+                st.success(f" Recommendations generated in {response_time:.2f}s")
                 
-                # Affichage des métriques
                 col1, col2, col3, col4 = st.columns(4)
                 with col1:
-                    st.metric("Utilisateur", user_id)
+                    st.metric("User", user_id)
                 with col2:
-                    st.metric("Recommandations", len(recommendations_data["recommendations"]))
+                    st.metric("Recommendations", len(recommendations_data["recommendations"]))
                 with col3:
-                    st.metric("Moteur", engine_type)
+                    st.metric("Engine", engine_type)
                 with col4:
-                    st.metric("Temps", f"{response_time:.2f}s")
+                    st.metric("Time", f"{response_time:.2f}s")
                 
-                # Récupération des infos films
                 movie_ids = recommendations_data["recommendations"]
                 movies_info = get_movie_info(movie_ids)
                 
-                # Affichage des recommandations
-                st.subheader("🎭 Films recommandés")
+                st.subheader("🎭 Recommended Movies")
                 
                 for i, movie in enumerate(movies_info, 1):
                     with st.container():
@@ -228,109 +209,105 @@ with tab1:
                         
                         with col2:
                             st.markdown(f"### {movie['title']}")
-                            st.markdown(f"**Genre:** {movie['genre']} | **Année:** {movie['year']}")
-                            st.markdown(f"**Note:** ⭐ {movie['rating']}/10")
+                            st.markdown(f"**Genre:** {movie['genre']} | **Year:** {movie['year']}")
+                            st.markdown(f"**Rating:** ⭐ {movie['rating']}/10")
                         
                         with col3:
-                            if st.button("👁️ Voir", key=f"btn_{movie['id']}"):
+                            if st.button("👁️ View", key=f"btn_{movie['id']}"):
                                 st.session_state.selected_movie = movie
                 
-                # Graphique des scores (si disponibles)
                 if "scores" in recommendations_data and len(recommendations_data["scores"]) > 0:
-                    st.subheader("📈 Scores de confiance")
+                    st.subheader(" Confidence Scores")
                     
                     scores_data = pd.DataFrame({
-                        "Film": [f"Film {mid}" for mid in movie_ids],
+                        "Movie": [f"Movie {mid}" for mid in movie_ids],
                         "Score": recommendations_data["scores"][:len(movie_ids)]
                     })
                     
-                    st.bar_chart(scores_data.set_index("Film"))
+                    st.bar_chart(scores_data.set_index("Movie"))
 
 with tab2:
-    st.header(" Analytics et Métriques")
+    st.header(" Analytics and Metrics")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("Performance du Système")
+        st.subheader("System Performance")
         
-        # Métriques simulées
-        st.metric("Temps moyen de réponse", "0.45s")
-        st.metric("Précision", "87%")
-        st.metric("Utilisateurs actifs", "1,234")
-        st.metric("Films dans la base", "5,678")
+        st.metric("Average Response Time", "0.45s")
+        st.metric("Accuracy", "87%")
+        st.metric("Active Users", "1,234")
+        st.metric("Movies in Database", "5,678")
     
     with col2:
-        st.subheader("Distribution des Genres")
+        st.subheader("Genre Distribution")
         
-        # Données simulées pour le graphique
         genre_data = pd.DataFrame({
-            'Genre': ['Action', 'Drame', 'Comédie', 'Sci-Fi', 'Thriller'],
-            'Pourcentage': [25, 20, 18, 15, 12]
+            'Genre': ['Action', 'Drama', 'Comedy', 'Sci-Fi', 'Thriller'],
+            'Percentage': [25, 20, 18, 15, 12]
         })
         
         st.bar_chart(genre_data.set_index('Genre'))
     
-    st.subheader(" Historique des Recommandations")
+    st.subheader(" Recommendation History")
     
-    # Tableau d'historique simulé
     history_data = pd.DataFrame({
         'Date': ['2024-01-15', '2024-01-14', '2024-01-13', '2024-01-12'],
-        'Utilisateur': [1, 2, 1, 3],
-        'Recommandations': [5, 3, 8, 10],
+        'User': [1, 2, 1, 3],
+        'Recommendations': [5, 3, 8, 10],
         'Satisfaction': ['👍', '👍', '👎', '👍']
     })
     
     st.dataframe(history_data, width='stretch')
 
 with tab3:
-    st.header(" À propos de RecomSys-Flix")
+    st.header(" About RecomSys-Flix")
     
     st.markdown("""
-    ###  Qu'est-ce que RecomSys-Flix ?
+    ###  What is RecomSys-Flix?
     
-    **RecomSys-Flix** est un système de recommandation de films intelligent qui combine plusieurs approches d'IA pour vous proposer les films les plus pertinents.
+    **RecomSys-Flix** is an intelligent movie recommendation system that combines multiple AI approaches to suggest the most relevant movies for you.
     
-    ###  Technologies utilisées
+    ###  Technologies Used
     
-    - **🤝 Filtrage Collaboratif**: Basé sur la similarité entre utilisateurs
-    - **🧠 Réseaux de Neurones**: Embeddings avancés pour capturer les patterns complexes
-    - **🌐 API REST**: Architecture microservices avec FastAPI
-    - **🎨 Interface**: Streamlit pour une expérience utilisateur intuitive
+    - **🤝 Collaborative Filtering**: Based on user similarity
+    - **🧠 Neural Networks**: Advanced embeddings to capture complex patterns
+    - **🌐 REST API**: Microservices architecture with FastAPI
+    - **🎨 Interface**: Streamlit for an intuitive user experience
     
-    ###  Algorithmes implémentés
+    ###  Implemented Algorithms
     
-    1. **Filtrage Collaboratif**
-       - Similarité cosinus entre utilisateurs
-       - Décomposition SVD pour la réduction de dimension
-       - Recommandations basées sur les voisins similaires
+    1. **Collaborative Filtering**
+       - Cosine similarity between users
+       - SVD decomposition for dimensionality reduction
+       - Recommendations based on similar users
     
-    2. **Réseaux de Neurones** 
-       - Embeddings pour utilisateurs et films
-       - Architecture deep learning avec PyTorch
-       - Apprentissage des préférences complexes
+    2. **Neural Networks** 
+       - Embeddings for users and movies
+       - Deep learning architecture with PyTorch
+       - Learning of complex preferences
     
-    3. **Approche Hybride**
-       - Combinaison intelligente des deux méthodes
-       - Meilleure précision et couverture
-       - Résilience aux données éparses
+    3. **Hybrid Approach**
+       - Intelligent combination of both methods
+       - Better accuracy and coverage
+       - Resilience to sparse data
     
-    ### 🚀 Performance
+    ### ⚡ Performance
     
-    - ⏱️ Temps de réponse: < 1 seconde
-    -  Précision: > 85%
-    - 📈 Scalabilité: Jusqu'à 1000+ requêtes/minute
-    -  Personnalisation: Adapté à chaque utilisateur
+    -  Response Time: < 1 second
+    -  Accuracy: > 85%
+    -  Scalability: Up to 1000+ requests/minute
+    -  Personalization: Adapted to each user
     """)
     
-    st.info("💡 **Conseil**: Pour de meilleures résultats, assurez-vous que le serveur API est démarré sur le port 8000.")
+    st.info("💡 **Tip**: For best results, make sure the API server is running on port 8000.")
 
 # Footer
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: #666;'>"
-    "🎬 RecomSys-Flix - Système de Recommandation Intelligent • "
-    "Développé avec ❤️ using Streamlit & FastAPI"
+    "🎬 RecomSys-Flix - Intelligent Recommendation System • "
+    "Developed with ❤️ using Streamlit & FastAPI"
     "</div>",
     unsafe_allow_html=True
 )

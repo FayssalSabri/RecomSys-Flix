@@ -6,7 +6,6 @@ import pandas as pd
 router = APIRouter()
 engine = HybridEngine()
 
-# Données d'exemple pour les tests
 def create_sample_data():
     """Crée des données d'exemple pour les tests"""
     return pd.DataFrame({
@@ -20,14 +19,14 @@ def initialize_engine():
     try:
         ratings_df = create_sample_data()
         engine.fit(ratings_df)
-        print("✅ Moteur de recommandation initialisé")
+        print(" Moteur de recommandation initialisé")
     except Exception as e:
-        print(f"❌ Erreur d'initialisation: {e}")
+        print(f" Erreur d'initialisation: {e}")
 
 @router.post("/recommend", response_model=RecommendationResponse)
 async def get_recommendations(request: RecommendationRequest):
     try:
-        print(f"📥 Requête reçue pour user {request.user_id}, "
+        print(f" Requête reçue pour user {request.user_id}, "
               f"{request.n_recommendations} recommandations, "
               f"engine: {getattr(request, 'engine_type', 'hybrid')}")
         
@@ -53,7 +52,7 @@ async def get_recommendations(request: RecommendationRequest):
             )
             engine_used = "hybrid"
         
-        print(f"📤 Envoi de {len(recommendations)} recommandations "
+        print(f" Envoi de {len(recommendations)} recommandations "
               f"(moteur: {engine_used})")
         
         return RecommendationResponse(
@@ -63,7 +62,7 @@ async def get_recommendations(request: RecommendationRequest):
             engine_type=engine_used
         )
     except Exception as e:
-        print(f"❌ Erreur dans /recommend: {e}")
+        print(f" Erreur dans /recommend: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/health")

@@ -89,7 +89,7 @@ with st.sidebar:
     get_recommendations = st.button(
         " Obtenir des recommandations",
         type="primary",
-        use_container_width=True
+        width='stretch'
     )
     
     st.markdown("---")
@@ -181,7 +181,7 @@ def get_movie_info(movie_ids):
     return movies_info
 
 # Contenu principal
-tab1, tab2, tab3 = st.tabs([" Recommandations", " Analytics", "ℹ️ À propos"])
+tab1, tab2, tab3 = st.tabs([" Recommandations", " Analytics", " À propos"])
 
 with tab1:
     st.header("🎬 Recommandations de Films")
@@ -281,10 +281,10 @@ with tab2:
         'Satisfaction': ['👍', '👍', '👎', '👍']
     })
     
-    st.dataframe(history_data, use_container_width=True)
+    st.dataframe(history_data, width='stretch')
 
 with tab3:
-    st.header("ℹ️ À propos de RecomSys-Flix")
+    st.header(" À propos de RecomSys-Flix")
     
     st.markdown("""
     ###  Qu'est-ce que RecomSys-Flix ?

@@ -635,29 +635,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **scikit-learn** - Machine learning tools
 - **Netflix** - Inspiration for recommendation systems
 
----
 
-<div align="center">
 
-##  Ready to Build Your Own Netflix?
-
-**Get started in just 3 commands:**
-
-```bash
-git clone https://github.com/FayssalSabri/RecomSys-Flix.git
-cd RecomSys-Flix
-docker-compose up
-```
-
-**Then visit http://localhost:8501 and discover the magic!** 
-
----
-
-    
 [⬆ Back to Top](#top)
 
 ---
 
-**RecomSys-Flix** - Making every movie night perfect since 2024 🍿🎥
+**RecomSys-Flix** - Making every movie night perfect 🍿🎥
 
 </div>

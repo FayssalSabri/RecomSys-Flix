@@ -1,5 +1,4 @@
-Vous avez absolument raison ! Le README actuel est trop technique. Voici une version complètement réécrite qui explique le projet de manière claire et engageante :
-
+<a id="top"></a>
 #  RecomSys-Flix - Intelligent Movie Recommendation System
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
@@ -409,7 +408,7 @@ streamlit run streamlit_app/main.py
 
 Then visit **http://localhost:8501** and let the magic begin! 
 
-[⬆ Back to Top](#-recomsys-flix---intelligent-movie-recommendation-system)
+[⬆ Back to Top](#top)
 
 </div>
 

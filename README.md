@@ -38,34 +38,22 @@
 
 RecomSys-Flix is an intelligent movie recommendation system that combines collaborative filtering, neural networks, and hybrid algorithms to deliver personalized movie suggestions. Think Netflix's "Because you watched..." but built with modern AI technology you can deploy and customize yourself.
 
-###  See It in Action
+### See It in Action
 
-<details>
-<summary><b> User Interface - Click to expand</b></summary>
+**User Interface**
 
-![RecomSys-Flix Interface](img/RecomSys-Flix.png)
-
+![RecomSys-Flix Interface](img/RecomSys-Flix.png)  
 Intuitive interface where users browse, rate, and discover movies effortlessly.
 
-</details>
+**Analytics Dashboard**
 
-<details>
-<summary><b> Analytics Dashboard - Click to expand</b></summary>
-
-![RecomSys-Flix Analytics](img/RecomSys-Flix-Analytics.png)
-
+![RecomSys-Flix Analytics](img/RecomSys-Flix-Analytics.png)  
 Advanced analytics processing viewing patterns and providing powerful insights.
 
-</details>
+**Personalized Results**
 
-<details>
-<summary><b> Personalized Results - Click to expand</b></summary>
-
-![RecomSys-Flix Results](img/RecomSys-Flix-Results.png)
-
+![RecomSys-Flix Results](img/RecomSys-Flix-Results.png)  
 Personalized recommendations that adapt to each user's unique taste.
-
-</details>
 
 ---
 

@@ -11,18 +11,9 @@ Vous avez absolument raison ! Le README actuel est trop technique. Voici une ver
 ##  What is RecomSys-Flix?
 
 <p align="center">
-  <figure>
-    <img src="img/RecomSys-Flix.png" width="300">
-    <figcaption><b> Main Interface</b></figcaption>
-  </figure>
-  <figure>
-    <img src="img/RecomSys-Flix-Analytics.png" width="300">
-    <figcaption><b> Analytics Dashboard</b></figcaption>
-  </figure>
-  <figure>
-    <img src="img/RecomSys-Flix-Results.png" width="300">
-    <figcaption><b> Recommendation Results</b></figcaption>
-  </figure>
+  <img src="img/RecomSys-Flix.png" alt="RecomSys-Flix" width="350">
+  <img src="img/RecomSys-Flix-Analytics.png" alt="RecomSys-Flix Analytics" width="350">
+  <img src="img/RecomSys-Flix-Results.png" alt="RecomSys-Flix Results" width="350">
 </p>
 
 

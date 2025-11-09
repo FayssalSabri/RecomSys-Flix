@@ -11,8 +11,8 @@ Vous avez absolument raison ! Le README actuel est trop technique. Voici une ver
 ##  What is RecomSys-Flix?
 
 ![RecomSys-Flix](img/RecomSys-Flix.png)
-![RecomSys-Flix-Analytics](img/Analytics.png)
-![RecomSys-Flix-Results](img/Results.png)
+![RecomSys-Flix-Analytics](img/RecomSys-Flix-Analytics.png)
+![RecomSys-Flix-Results](img/RecomSys-Flix-Results.png)
 
 **RecomSys-Flix** is an intelligent movie recommendation system that acts like your personal movie expert! 🍿
 

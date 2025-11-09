@@ -572,7 +572,6 @@ mypy app/
 ##  Documentation
 
 ### Technical Resources
-- [Architecture Documentation](docs/architecture.md)
 - [Algorithm Details](docs/algorithms.md)
 - [API Reference](http://localhost:8000/docs)
 - [Performance Benchmarks](docs/benchmarks.md)

@@ -1,4 +1,3 @@
-```markdown
 #  Recommendation Algorithms Documentation
 
 ## Overview
@@ -300,5 +299,4 @@ training_params = {
 ---
 
 *Last Updated: 2025 | Fayssal Sabri*
-```
 

@@ -1,4 +1,3 @@
-```markdown
 #  Performance Benchmarks
 
 ## Overview
@@ -294,4 +293,3 @@ Month 12: Cloud native - 100,000+ users
 All metrics calculated according to industry standards with 95% confidence intervals. Benchmarks updated quarterly.
 
 *Last Benchmark Update: Q1 3036 | Fayssal Sabri*
-```

@@ -653,11 +653,7 @@ docker-compose up
 
 ---
 
-### ⭐ Star this repo if you found it helpful!
-
-[![GitHub stars](https://img.shields.io/github/stars/FayssalSabri/RecomSys-Flix?style=social)](https://github.com/FayssalSabri/RecomSys-Flix/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/FayssalSabri/RecomSys-Flix?style=social)](https://github.com/FayssalSabri/RecomSys-Flix/network/members)
-
+    
 [⬆ Back to Top](#top)
 
 ---

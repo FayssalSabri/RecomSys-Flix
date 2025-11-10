@@ -76,7 +76,7 @@ Personalized recommendations that adapt to each user's unique taste.
 
 RecomSys-Flix uses three complementary approaches to understand your taste:
 
-###  Collaborative Filtering: "People Like You Also Loved..."
+###  1️⃣ Collaborative Filtering: "People Like You Also Loved..."
 
 Finds users with similar taste and recommends movies they enjoyed.
 

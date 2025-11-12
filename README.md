@@ -239,7 +239,7 @@ Visual representation of the relational structure used by RecomSys-Flix.
 
 <img src="img/database_demo.gif" width="700" alt="Supabase database relations" />
 
-Each table in the schema represents a key entity of the recommendation pipeline — users, movies, ratings, and analytics — linked through foreign key constraints to ensure data integrity.
+Each table in the schema represents a key entity of the recommendation pipeline - users, movies, ratings, and analytics - linked through foreign key constraints to ensure data integrity.
 
 ### Backend Components
 

@@ -26,6 +26,7 @@
 - [How It Works](#-how-it-works)
 - [Quick Start](#-quick-start)
 - [System Architecture](#-system-architecture)
+- [Database Schema](#-Database-Schema)
 - [Performance](#-performance--accuracy)
 - [API Usage](#-api-usage)
 - [Deployment](#-deployment)
@@ -230,6 +231,15 @@ graph TB
     C --> C2
     C --> C3
 ```
+
+
+### Database Schema
+
+Visual representation of the relational structure used by RecomSys-Flix.
+
+<img src="img/database_demo.gif" width="700" alt="Supabase database relations" />
+
+Each table in the schema represents a key entity of the recommendation pipeline — users, movies, ratings, and analytics — linked through foreign key constraints to ensure data integrity.
 
 ### Backend Components
 
@@ -495,7 +505,7 @@ def filter_recommendations(recommendations, rules):
 - Book suggestions
 - Podcast recommendations
 
-### 🎓 Education
+### Education
 - Course recommendations
 - Learning path suggestions
 - Resource discovery

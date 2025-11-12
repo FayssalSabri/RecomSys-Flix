@@ -1,15 +1,54 @@
 version: '3.8'
+
 services:
-  recommender:
-    build: .
-    ports:
-      - "8000:8000"
+  postgres:
+    image: postgres:13
     environment:
-      - ENVIRONMENT=production
-    restart: unless-stopped
-    
+      POSTGRES_DB: recomsys_flix
+      POSTGRES_USER: recomsys
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_database.py:/docker-entrypoint-initdb.d/init_database.py
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recomsys -d recomsys_flix"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
-    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://recomsys:password@postgres:5432/recomsys_flix
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  redis_data:

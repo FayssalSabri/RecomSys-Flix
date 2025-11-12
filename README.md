@@ -25,12 +25,12 @@ RecomSys-Flix is a movie recommendation system that combines three AI approaches
 
 ### Key Features
 
-**Triple AI Engine** — Collaborative filtering + Neural networks + Hybrid approach  
-**Response Time** — < 500ms average  
-**Precision** — 87% with hybrid engine  
-**RESTful API** — Interactive documentation with FastAPI  
-**Modern Interface** — Streamlit dashboard with interactive visualizations  
-**Docker Ready** — One-command deployment
+**Triple AI Engine** - Collaborative filtering + Neural networks + Hybrid approach  
+**Response Time** - < 500ms average  
+**Precision** - 87% with hybrid engine  
+**RESTful API** - Interactive documentation with FastAPI  
+**Modern Interface** - Streamlit dashboard with interactive visualizations  
+**Docker Ready** - One-command deployment
 
 ---
 
@@ -93,13 +93,6 @@ streamlit run streamlit_app/main.py
 ```bash
 docker-compose up --build
 ```
-
-### Access
-
-- **Web Interface**: http://localhost:8501
-- **API**: http://localhost:8000
-- **Documentation**: http://localhost:8000/docs
-
 ---
 
 ## Architecture
